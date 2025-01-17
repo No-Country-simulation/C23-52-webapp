@@ -1,5 +1,5 @@
 export const Navbar = () => {
     return (
-        <div>Navbar</div>
+        <header>Navbar New</header>
     )
 }

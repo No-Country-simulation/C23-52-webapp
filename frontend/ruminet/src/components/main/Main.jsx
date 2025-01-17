@@ -1,5 +1,11 @@
 export const Main = () => {
-    return (
-        <div>Main</div>
-    )
-}
+  return (
+    <main>
+      <section>
+        {/* Hero */}
+        <h2>Más vendidos</h2>
+        {/* Cards */}
+      </section>
+    </main>
+  );
+};

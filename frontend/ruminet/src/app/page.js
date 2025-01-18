@@ -4,7 +4,7 @@ import { Navbar } from '@/components/navbar/Navbar';
 
 export default function HomePage() {
   return (
-    <div className='grid place-content-center'>
+    <div className='grid grid-rows-[auto_1fr_auto] min-h-screen m-auto place-content-center container'>
       <Navbar />
       <Main />
       <Footer />

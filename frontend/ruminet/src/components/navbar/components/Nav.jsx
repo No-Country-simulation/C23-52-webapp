@@ -18,7 +18,7 @@ const NavLinks = () => {
 export default function Nav() {
   return (
     <nav>
-      <div className="hidden text-md items-center md:flex gap-20">
+      <div className="hidden text-md items-center md:flex md:gap-14 lg:gap-20">
         <NavLinks />
       </div>
       <div className="md:hidden">

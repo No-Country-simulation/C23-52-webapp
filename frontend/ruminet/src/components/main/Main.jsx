@@ -179,6 +179,7 @@ export const Main = () => {
                 <Card className='h-full'>
                   <CardContent className='flex h-full items-center justify-center p-6'>
                     <Image
+                    priority
                       src='/images/carrusel.png'
                       width={1500}
                       height={1500}

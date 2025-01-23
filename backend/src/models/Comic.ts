@@ -2,7 +2,7 @@ import { CallbackError, Schema, model } from 'mongoose';
 import { z } from 'zod';
 
 export const ComicSchema = z.object({
-  _id: z.string(),
+  // _id: z.string(),
   title: z.string().min(1, "El título es obligatorio"),
   type: z.array(z.string()).min(1, "Debe tener al menos un tipo"),
   thumbnail: z.string().url("Debe ser una URL válida"),

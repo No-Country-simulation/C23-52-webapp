@@ -8,7 +8,6 @@ export enum UserRole {
 }
 
 export const UserSchema = z.object({
-    _id: z.string(),
     username: z.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres"),
     email: z.string().email("Email inválido"),
     role: z.nativeEnum(UserRole),

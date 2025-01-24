@@ -5,13 +5,12 @@ export const uploadCloudinaryService = async ({
   files,
   authorId,
   comicId,
-  chapterId,
 }: uploadImageParams): Promise<string[]> => {
   try {
     const uploadedUrls: string[] = [];
 
     for (const file of files) {
-      const folderPath = `${authorId}/${comicId}/${chapterId}`;
+      const folderPath = `${authorId}/${comicId}/`;
 
       const uploadPromise = new Promise<string>((resolve, reject) => {
         const uploadStream = cloudinary.uploader.upload_stream(

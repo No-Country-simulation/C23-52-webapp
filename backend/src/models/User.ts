@@ -1,24 +1,6 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
+import { IUser, UserRole, UserSchema, UserUpdateSchema } from '../validations/user';
 
-export enum UserRole {
-    CREATOR = 'Creator',
-    ADMIN = 'Admin',
-    LECTOR = 'Lector'
-}
-
-export const UserSchema = z.object({
-    _id: z.string(),
-    username: z.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres"),
-    email: z.string().email("Email inválido"),
-    role: z.nativeEnum(UserRole),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional()
-});
-
-export const UserUpdateSchema = UserSchema.partial();
-
-export type IUser = z.infer<typeof UserSchema>;
 
 const userSchema = new Schema<IUser>(
     {

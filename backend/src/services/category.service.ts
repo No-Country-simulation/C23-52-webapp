@@ -59,3 +59,14 @@ export const deleteCategoryService = async (id: string): Promise<ICategory> => {
     throw new Error("Error al eliminar la categoría");    
   }
 };
+
+
+export const checkDuplicateCategoryService = async (name: string): Promise<boolean> => {
+  try {
+    const findCategory = await Category.findOne({name: name}).exec();
+
+    return findCategory ? true : false;
+  } catch (error) {
+    throw new Error("Error al verificar la categoría");
+  }
+}

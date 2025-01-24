@@ -1,5 +1,9 @@
-import { createCategoryService } from "../services/category.service";
+import {
+  checkDuplicateCategoryService,
+  createCategoryService,
+} from "../services/category.service";
 import { Request, Response } from "express";
+import { CategorySchema } from "../validations/category";
 
 const createCategoryController = async (
   req: Request,
@@ -7,7 +11,27 @@ const createCategoryController = async (
 ): Promise<void> => {
   try {
     const dataCategory = req.body;
-    //validar req.body
+
+    const dataValidate = CategorySchema.safeParse(dataCategory);
+
+    if (dataValidate.error) {
+      const error = dataValidate.error.errors.map((err) => ({
+        path: err.path[0],
+        message: err.message,
+      }));
+
+      res.status(400).json({
+        message: "Error en la validacion de datos",
+        error: error,
+      });
+    }
+
+    const findCategory = await checkDuplicateCategoryService(dataCategory.name);
+
+    if (findCategory) {
+      res.status(400).json({ message: "La categoría ya existe" });
+    }
+
     const newCategory = await createCategoryService(dataCategory);
 
     console.log(newCategory);
@@ -19,7 +43,6 @@ const createCategoryController = async (
     res.status(500).send({ message: "Error al crear la categoría" });
   }
 };
-
 
 export default {
   createCategoryController,

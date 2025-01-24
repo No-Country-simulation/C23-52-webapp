@@ -1,24 +1,5 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
-
-export enum SubscriptionType {
-    PREMIUM = 'Premium',
-    BASIC = 'Basic',
-    STANDARD = 'Standard'
-}
-
-export const SubscriptionSchema = z.object({
-    _id: z.string(),
-    user_id: z.any(),
-    subscription_type: z.nativeEnum(SubscriptionType),
-    subscription_expiration: z.date(),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional()
-});
-
-export const SubscriptionUpdateSchema = SubscriptionSchema.partial();
-
-export type ISubscription = z.infer<typeof SubscriptionSchema>;
+import { ISubscription, SubscriptionSchema, SubscriptionUpdateSchema, SubscriptionType } from '../validations/subscription';
 
 const subscriptionSchema = new Schema<ISubscription>(
     {

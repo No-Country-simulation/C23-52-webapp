@@ -1,17 +1,6 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
+import { ICategory, CategorySchema, CategoryUpdateSchema } from '../validations/category';
 
-export const CategorySchema = z.object({
-    _id: z.string(),
-    name: z.string().min(1, "El nombre es obligatorio"),
-    description: z.string().min(10, "La descripción debe tener al menos 10 caracteres"),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional()
-});
-
-export const CategoryUpdateSchema = CategorySchema.partial();
-
-export type ICategory = z.infer<typeof CategorySchema>;
 
 const categorySchema = new Schema<ICategory>(
     {

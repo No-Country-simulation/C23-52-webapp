@@ -1,18 +1,6 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
+import { IComentario, ComentarioSchema, ComentarioUpdateSchema } from '../validations/comentario';
 
-export const ComentarioSchema = z.object({
-    _id: z.string(),
-    message: z.string().min(1, "El mensaje es obligatorio"),
-    idUser: z.any(),
-    idCapitulos: z.any(),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional()
-});
-
-export const ComentarioUpdateSchema = ComentarioSchema.partial();
-
-export type IComentario = z.infer<typeof ComentarioSchema>;
 
 const comentarioSchema = new Schema<IComentario>(
     {

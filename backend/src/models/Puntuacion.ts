@@ -2,7 +2,7 @@ import { CallbackError, Schema, model } from 'mongoose';
 import { z } from 'zod';
 
 export const PuntuacionSchema = z.object({
-    _id: z.string(),
+    // _id: z.string(),
     puntuacion: z.number().min(1).max(5),
     idUser: z.any(),
     idComic: z.any(),

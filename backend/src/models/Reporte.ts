@@ -2,7 +2,7 @@ import { CallbackError, Schema, model } from 'mongoose';
 import { z } from 'zod';
 
 export const ReporteSchema = z.object({
-    _id: z.string(),
+    // _id: z.string(),
     typeReport: z.string().min(1, "El tipo de reporte es obligatorio"),
     idUser: z.any(),
     idCapitulo: z.any(),

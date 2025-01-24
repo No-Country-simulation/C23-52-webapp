@@ -2,7 +2,7 @@ import { CallbackError, Schema, model } from 'mongoose';
 import { z } from 'zod';
 
 export const LectorSchema = z.object({
-    _id: z.string(),
+    // _id: z.string(),
     idUser: z.any(),
     credits: z.number().min(0),
     createdAt: z.date().optional(),

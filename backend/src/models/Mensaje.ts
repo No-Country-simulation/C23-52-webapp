@@ -2,7 +2,7 @@ import { CallbackError, Schema, model } from 'mongoose';
 import { z } from 'zod';
 
 export const MensajeSchema = z.object({
-    _id: z.string(),
+    // _id: z.string(),
     message: z.string().min(1, "El mensaje es obligatorio"),
     idUserEmisor: z.any(),
     idUserReceptor: z.any(),

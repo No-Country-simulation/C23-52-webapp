@@ -2,7 +2,7 @@ import { CallbackError, Schema, model } from 'mongoose';
 import { z } from 'zod';
 
 export const AdminSchema = z.object({
-    _id: z.string(),
+    // _id: z.string(),
     idUser: z.any(),
     createdAt: z.date().optional(),
     updatedAt: z.date().optional()

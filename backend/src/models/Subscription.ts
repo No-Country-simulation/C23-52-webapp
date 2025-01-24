@@ -8,7 +8,7 @@ export enum SubscriptionType {
 }
 
 export const SubscriptionSchema = z.object({
-    _id: z.string(),
+    // _id: z.string(),
     user_id: z.any(),
     subscription_type: z.nativeEnum(SubscriptionType),
     subscription_expiration: z.date(),

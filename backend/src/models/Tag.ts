@@ -2,7 +2,7 @@ import { CallbackError, Schema, model } from 'mongoose';
 import { z } from 'zod';
 
 export const TagSchema = z.object({
-    _id: z.string(),
+    // _id: z.string(),
     name: z.string().min(1, "El nombre es obligatorio"),
     description: z.string().min(10, "La descripción debe tener al menos 10 caracteres"),
     comicsId: z.array(z.string().regex(/^[0-9a-fA-F]{24}$/, "ID de comic inválido")),

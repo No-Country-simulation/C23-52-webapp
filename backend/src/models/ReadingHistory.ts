@@ -2,7 +2,7 @@ import { CallbackError, Schema, model } from 'mongoose';
 import { z } from 'zod';
 
 export const ReadingHistorySchema = z.object({
-    _id: z.string(),
+    // _id: z.string(),
     user: z.any(),
     comic: z.any(),
     pagesRead: z.number().min(0, "El número de páginas no puede ser negativo"),

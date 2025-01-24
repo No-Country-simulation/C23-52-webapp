@@ -6,9 +6,9 @@ export const ComicSchema = z.object({
   thumbnail: z.string().url("Debe ser una URL válida"),
   description: z.string().min(10, "La descripción debe tener al menos 10 caracteres"),
   creator: z.any(),
-  categories: z.array(z.string().regex(/^[0-9a-fA-F]{24}$/, "ID de categoría inválido")),
+  categories: z.array(z.any()),
   isPublic: z.boolean(),
-  tagsGenero: z.array(z.string().regex(/^[0-9a-fA-F]{24}$/, "ID de tag inválido")),
+  tagsGenero: z.array(z.any()),
   puntuacion: z.number().min(1).max(5),
   views: z.number().min(0),
 });

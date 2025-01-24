@@ -1,18 +1,5 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
-
-export const ReporteSchema = z.object({
-    // _id: z.string(),
-    typeReport: z.string().min(1, "El tipo de reporte es obligatorio"),
-    idUser: z.any(),
-    idCapitulo: z.any(),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional()
-});
-
-export const ReporteUpdateSchema = ReporteSchema.partial();
-
-export type IReporte = z.infer<typeof ReporteSchema>;
+import { IReporte, ReporteSchema, ReporteUpdateSchema } from '../validations/reporte';
 
 const reporteSchema = new Schema<IReporte>(
     {

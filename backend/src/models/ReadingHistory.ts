@@ -1,20 +1,5 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
-
-export const ReadingHistorySchema = z.object({
-    // _id: z.string(),
-    user: z.any(),
-    comic: z.any(),
-    pagesRead: z.number().min(0, "El número de páginas no puede ser negativo"),
-    completed: z.boolean(),
-    lastReadAt: z.date(),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional()
-});
-
-export const ReadingHistoryUpdateSchema = ReadingHistorySchema.partial();
-
-export type IReadingHistory = z.infer<typeof ReadingHistorySchema>;
+import { IReadingHistory, ReadingHistorySchema, ReadingHistoryUpdateSchema } from '../validations/readingHistory';
 
 const readingHistorySchema = new Schema<IReadingHistory>(
     {

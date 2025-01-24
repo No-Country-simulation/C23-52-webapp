@@ -1,17 +1,5 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
-
-export const LectorSchema = z.object({
-    // _id: z.string(),
-    idUser: z.any(),
-    credits: z.number().min(0),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional()
-});
-
-export const LectorUpdateSchema = LectorSchema.partial();
-
-export type ILector = z.infer<typeof LectorSchema>;
+import { ILector, LectorSchema, LectorUpdateSchema } from '../validations/lector';
 
 const lectorSchema = new Schema<ILector>(
     {

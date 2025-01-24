@@ -1,17 +1,6 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
+import { ICreator, CreatorSchema, CreatorUpdateSchema } from '../validations/creator';
 
-export const CreatorSchema = z.object({
-    // _id: z.string(),
-    idUser: z.any(),
-    publishedComic: z.array(z.string().regex(/^[0-9a-fA-F]{24}$/, "ID de comic inválido")),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional()
-});
-
-export const CreatorUpdateSchema = CreatorSchema.partial();
-
-export type ICreator = z.infer<typeof CreatorSchema>;
 
 const creatorSchema = new Schema<ICreator>(
     {

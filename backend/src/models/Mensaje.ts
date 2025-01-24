@@ -1,18 +1,6 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
+import { IMensaje, MensajeSchema, MensajeUpdateSchema } from '../validations/mensaje';
 
-export const MensajeSchema = z.object({
-    // _id: z.string(),
-    message: z.string().min(1, "El mensaje es obligatorio"),
-    idUserEmisor: z.any(),
-    idUserReceptor: z.any(),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional()
-});
-
-export const MensajeUpdateSchema = MensajeSchema.partial();
-
-export type IMensaje = z.infer<typeof MensajeSchema>;
 
 const mensajeSchema = new Schema<IMensaje>(
     {

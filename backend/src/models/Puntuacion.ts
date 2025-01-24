@@ -1,18 +1,6 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
+import { IPuntuacion, PuntuacionSchema, PuntuacionUpdateSchema } from '../validations/puntuacion';
 
-export const PuntuacionSchema = z.object({
-    // _id: z.string(),
-    puntuacion: z.number().min(1).max(5),
-    idUser: z.any(),
-    idComic: z.any(),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional()
-});
-
-export const PuntuacionUpdateSchema = PuntuacionSchema.partial();
-
-export type IPuntuacion = z.infer<typeof PuntuacionSchema>;
 
 const puntuacionSchema = new Schema<IPuntuacion>(
     {

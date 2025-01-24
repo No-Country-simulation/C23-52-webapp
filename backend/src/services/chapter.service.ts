@@ -1,4 +1,5 @@
-import {Capitulo, ICapitulo} from "../models/Capitulo"
+import {Capitulo} from "../models/Capitulo";
+import {ICapitulo} from "../validations/capitulo";
 
 export const createChapterService = async (chapter: ICapitulo): Promise<ICapitulo> => {
   try {

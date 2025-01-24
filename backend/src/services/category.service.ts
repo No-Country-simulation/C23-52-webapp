@@ -1,4 +1,5 @@
-import {Category, ICategory} from "../models/Category";
+import {Category} from "../models/Category";
+import {ICategory} from "../validations/category";
 
 export const createCategoryService = async (category: ICategory): Promise<ICategory> => {
   try {

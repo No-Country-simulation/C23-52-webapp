@@ -1,4 +1,5 @@
-import {Comic, IComic} from "../models/Comic";
+import { Comic } from "../models/Comic";
+import { IComic } from "../validations/comic";
 
 export const createComicService = async (comic: IComic): Promise<IComic> => {
   try {
@@ -7,9 +8,8 @@ export const createComicService = async (comic: IComic): Promise<IComic> => {
     await newComic.save();
 
     return newComic;
-
   } catch (error) {
     console.log(error);
     throw new Error("Error al crear el comic");
   }
-}
+};

@@ -1,4 +1,5 @@
-import { Comic, IComic } from "../models/Comic";
+import { Comic } from "../models/Comic";
+import { IComic } from "../validations/comic";
 
 export const createComicService = async (comic: IComic): Promise<IComic> => {
   try {

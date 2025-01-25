@@ -6,6 +6,7 @@ export const PATH_LOGIN = "/login";
 
 const router = Router();
 
-router.post(PATH_LOGIN, checkJwt, LoginController);
+//router.post(PATH_LOGIN, checkJwt, LoginController);
+router.post(PATH_LOGIN, LoginController);
 
 export default router;

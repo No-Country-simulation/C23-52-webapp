@@ -12,17 +12,18 @@ const jwt_decode = require("jwt-decode");
  */
 const LoginController = async (req: Request, res: Response): Promise<void> => {
   try {
-    const token = req.headers.authorization?.split(" ")[1];
+    //const token = req.headers.authorization?.split(" ")[1];
 
-    if (!token) {
-      res.status(401).json({ message: ERROR_MESSAGES.AUTH.TOKEN_NOT_PROVIDED });
-      return;
-    }
+    // if (!token) {
+    //   res.status(401).json({ message: ERROR_MESSAGES.AUTH.TOKEN_NOT_PROVIDED });
+    //   return;
+    // }
 
-    const decodedToken: any = jwt_decode(token);
+    // const decodedToken: any = jwt_decode(token);
 
-    const email = decodedToken.email;
-
+    //const email = decodedToken.email;
+    const email = req.body.email;
+    
     if (!email) {
       res.status(400).json({ message: ERROR_MESSAGES.AUTH.INVALID_TOKEN });
       return;

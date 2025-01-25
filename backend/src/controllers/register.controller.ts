@@ -14,6 +14,12 @@ export const CreateUserController = async (
 ): Promise<void> => {
   try {
     const { email, username, role } = req.body;
+    //const sessionCookie = req.cookies?.appSession;
+
+    // if (!sessionCookie) {
+    //   res.status(401).json({ message: ERROR_MESSAGES.USER.SESSION_REQUIRED });
+    //   return;
+    // }
 
     if (!email) {
       res.status(400).json({ message: ERROR_MESSAGES.USER.EMAIL_REQUIRED });

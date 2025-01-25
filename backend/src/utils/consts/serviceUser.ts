@@ -9,6 +9,7 @@ export const ERROR_MESSAGES = {
     USER_NOT_FOUND: "Usuario no encontrado",
     DUPLICATE_EMAIL_ERROR: "Conflicto: correo duplicado en la base de datos",
     INVALID_EMAIL_FORMAT: "El formato del correo electrónico es inválido",
+    SESSION_REQUIRED: "Se requiere una sesión para esta acción",
   },
   DATABASE: {
     CONNECTION_ERROR: "Servicio de base de datos no disponible",
@@ -21,7 +22,6 @@ export const ERROR_MESSAGES = {
     UNKNOWN_ERROR: "Error interno del servidor",
   },
 };
-
 
 export const ERROR_IDENTIFIERS = {
   DATABASE: {

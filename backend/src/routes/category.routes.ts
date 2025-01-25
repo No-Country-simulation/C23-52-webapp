@@ -5,6 +5,6 @@ const router = express.Router();
 
 const PATH_CATEGORY = "/category";
 
-router.post(PATH_CATEGORY, categoryController.createCategoryController);
+router.post(PATH_CATEGORY, categoryController.createCategory);
 
 export default router;

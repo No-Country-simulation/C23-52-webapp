@@ -11,7 +11,7 @@ export const createChapterService = async (
 
     return newChapter;
   } catch (error) {
-    console.log(error);
+    console.log("error en createChapterService",error);
     throw new Error("Error al crear el capítulo");
   }
 };
@@ -59,3 +59,13 @@ export const deleteChapterService = async (id: string): Promise<ICapitulo> => {
     throw new Error("Error al eliminar el capítulo");
   }
 };
+
+export const checkDuplicateChapterService = async (name: string): Promise<boolean> => {
+  try {
+    const findChapter = await Capitulo.findOne({name: name}).exec();
+    
+    return findChapter ? true : false;
+  } catch (error) {
+    throw new Error("Error al verificar el capítulo");
+  }
+}

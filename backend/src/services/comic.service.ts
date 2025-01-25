@@ -9,7 +9,7 @@ export const createComicService = async (comic: IComic): Promise<IComic> => {
 
     return newComic;
   } catch (error) {
-    console.log(error);
+    console.log("Error en createComicService",error);
     throw new Error("Error al crear el comic");
   }
 };
@@ -57,3 +57,14 @@ export const deleteComicService = async (id: string): Promise<IComic> => {
     throw new Error("Error al eliminar el comic");
   }
 };
+
+export const checkDuplicateComicService = async (title: string): Promise<boolean> => {
+  try {
+    const comic = await Comic.findOne({title: title}).exec();
+
+    return comic ? true : false;
+  } catch (error) {
+    console.log("Error en checkDuplicateComicService",error);
+    throw new Error("Error al verificar el comic");
+  }
+}

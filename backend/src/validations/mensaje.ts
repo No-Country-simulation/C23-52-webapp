@@ -5,7 +5,9 @@ export const MensajeSchema = z.object({
     idUserEmisor: z.any(),
     idUserReceptor: z.any(),
 });
+export const MensajeResponse = MensajeSchema.extend({
+    _id: z.any()
+});
 
-export const MensajeUpdateSchema = MensajeSchema.partial();
-
+export type MensajeResponseType = z.infer<typeof MensajeResponse>;
 export type IMensaje = z.infer<typeof MensajeSchema>;

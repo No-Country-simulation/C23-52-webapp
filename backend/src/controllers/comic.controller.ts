@@ -1,22 +1,22 @@
-import { createComicService } from "../services/comic.service";
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
+import { Comic } from '../models/Comic';
+import { cache } from '../config/cache';
 
-
-const createComic = async (req: Request, res: Response): Promise<void> => {
+export const getComics = async (req:Request, res:Response) => {
   try {
-    const dataComic = req.body;
-
-    const newComic = await createComicService(dataComic);
-
-    console.log(newComic);
-    res.status(201).json({ message: 'Comic creado', data: newComic });
+    const comics = await Comic.find();
+    res.json(comics);
   } catch (error) {
-    console.log("error createComicController", error);
-
-    res.status(500).json({ message: "Error al crear el comic" });
+    res.status(500).json({ mensaje: "Error al obtener comics", error });
   }
 };
 
-export default {
-  createComic,
-};
+export const createComic = async (req:Request, res:Response) => {
+  try {
+    const nuevoComic = await Comic.create(req.body);
+    cache.delete('/api/comics');
+    res.status(201).json(nuevoComic);
+  } catch (error) {
+    res.status(500).json({ mensaje: "Error al crear comic", error });
+  }
+}; 

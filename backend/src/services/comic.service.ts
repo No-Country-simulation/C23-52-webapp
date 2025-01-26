@@ -36,9 +36,9 @@ export const getComicByIdService = async (id: string): Promise<IComic> => {
   }
 };
 
-export const updateComicService = async (id: string): Promise<IComic> => {
+export const updateComicService = async (id: string, comic: IComic): Promise<IComic> => {
   try {
-    const updatedComic = await Comic.findByIdAndUpdate(id).exec();
+    const updatedComic = await Comic.findByIdAndUpdate(id, comic).exec();
 
     return updatedComic ? updatedComic : ({} as IComic);
   } catch (error) {

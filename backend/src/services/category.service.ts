@@ -71,9 +71,9 @@ export const getCategoryByIdService = async (
   }
 };
 
-export const updateCategoryService = async (id: string): Promise<ICategory> => {
+export const updateCategoryService = async (id: string, category: ICategory): Promise<ICategory> => {
   try {
-    const updatedCategory = await Category.findByIdAndUpdate(id).exec();
+    const updatedCategory = await Category.findByIdAndUpdate(id, category).exec();
 
     return updatedCategory ? updatedCategory : ({} as ICategory);
   } catch (error: any) {

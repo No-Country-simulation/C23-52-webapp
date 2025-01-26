@@ -9,10 +9,7 @@ import {
 import { Request, Response } from "express";
 import { CategorySchema } from "../validations/category";
 
-const createCategory = async (
-  req: Request,
-  res: Response
-): Promise<void> => {
+const createCategory = async (req: Request, res: Response): Promise<void> => {
   try {
     const dataCategory = req.body;
 
@@ -28,13 +25,14 @@ const createCategory = async (
         message: "Error en la validacion de datos",
         error: error,
       });
-
+      return;
     }
 
     const findCategory = await checkDuplicateCategoryService(dataCategory.name);
 
     if (findCategory) {
       res.status(400).json({ message: "La categoría ya existe" });
+      return;
     }
 
     const newCategory = await createCategoryService(dataCategory);
@@ -49,31 +47,41 @@ const createCategory = async (
   }
 };
 
-const getAllCategory = async (req: Request, res: Response) => {
+const getAllCategory = async (_req: Request, res: Response): Promise<void> => {
   try {
-    const categories =  await getAllCategoryService();
+    const categories = await getAllCategoryService();
 
-    if(categories.length === 0) {
-      res.status(200).json({message: 'No se encontraron categorias', data: []});
+    if (categories.length === 0) {
+      res
+        .status(200)
+        .json({ message: "No se encontraron categorias", data: [] });
     }
 
-    res.status(200).json({message: 'Categorias encontradas', data: categories});
+    res
+      .status(200)
+      .json({ message: "Categorias encontradas", data: categories });
   } catch (error: any) {
     console.error("Error en getAllCategory:", error.message);
 
     if (error.message.includes("Timeout")) {
-      return res.status(504).json({ message: "El tiempo de espera para procesar la solicitud ha expirado." });
+      res.status(504).json({
+        message: "El tiempo de espera para procesar la solicitud ha expirado.",
+      });
     }
 
     if (error.message.includes("Servicio no disponible")) {
-      return res.status(503).json({ message: "Servicio no disponible. Inténtalo más tarde." });
+      res
+        .status(503)
+        .json({ message: "Servicio no disponible. Inténtalo más tarde." });
     }
 
-    res.status(500).json({ message: "Error inesperado al obtener las categorías." });
+    res
+      .status(500)
+      .json({ message: "Error inesperado al obtener las categorías." });
   }
 };
 
-const getCategoryById = async (req: Request, res: Response) => {
+const getCategoryById = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
 
@@ -88,46 +96,62 @@ const getCategoryById = async (req: Request, res: Response) => {
     console.error("Error en getCategoryById:", error.message);
 
     if (error.message.includes("Timeout")) {
-      return res.status(504).json({ message: "El tiempo de espera para procesar la solicitud ha expirado." });
+      res.status(504).json({
+        message: "El tiempo de espera para procesar la solicitud ha expirado.",
+      });
     }
 
     if (error.message.includes("Servicio no disponible")) {
-      return res.status(503).json({ message: "Servicio no disponible. Inténtalo más tarde." });
+      res
+        .status(503)
+        .json({ message: "Servicio no disponible. Inténtalo más tarde." });
     }
 
-    res.status(500).json({ message: "Error inesperado al obtener la categoría." });
+    res
+      .status(500)
+      .json({ message: "Error inesperado al obtener la categoría." });
   }
 };
 
-const updateCategory = async (req: Request, res: Response) => {
+const updateCategory = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
+    const dataUpdate = req.body;
 
     const category = await getCategoryByIdService(id);
 
     if (!category) {
       res.status(404).json({ message: "Categoría no encontrada" });
+      return;
     }
 
-    const updatedCategory = await updateCategoryService(id);
+    const updatedCategory = await updateCategoryService(id, dataUpdate);
 
-    res.status(200).json({ message: "Categoría actualizada", data: updatedCategory });
+    res
+      .status(200)
+      .json({ message: "Categoría actualizada", data: updatedCategory });
   } catch (error: any) {
     console.error("Error en updateCategory:", error.message);
 
     if (error.message.includes("Timeout")) {
-      return res.status(504).json({ message: "El tiempo de espera para procesar la solicitud ha expirado." });
+      res.status(504).json({
+        message: "El tiempo de espera para procesar la solicitud ha expirado.",
+      });
     }
 
     if (error.message.includes("Servicio no disponible")) {
-      return res.status(503).json({ message: "Servicio no disponible. Inténtalo más tarde." });
+      res
+        .status(503)
+        .json({ message: "Servicio no disponible. Inténtalo más tarde." });
     }
 
-    res.status(500).json({ message: "Error inesperado al actualizar la categoría." });
+    res
+      .status(500)
+      .json({ message: "Error inesperado al actualizar la categoría." });
   }
-}
+};
 
-const deleteCategory = async (req: Request, res: Response) => {
+const deleteCategory = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
 
@@ -144,22 +168,27 @@ const deleteCategory = async (req: Request, res: Response) => {
     console.error("Error en deleteCategory:", error.message);
 
     if (error.message.includes("Timeout")) {
-      return res.status(504).json({ message: "El tiempo de espera para procesar la solicitud ha expirado." });
+      res.status(504).json({
+        message: "El tiempo de espera para procesar la solicitud ha expirado.",
+      });
     }
 
     if (error.message.includes("Servicio no disponible")) {
-      return res.status(503).json({ message: "Servicio no disponible. Inténtalo más tarde." });
+      res
+        .status(503)
+        .json({ message: "Servicio no disponible. Inténtalo más tarde." });
     }
 
-    res.status(500).json({ message: "Error inesperado al eliminar la categoría." });
+    res
+      .status(500)
+      .json({ message: "Error inesperado al eliminar la categoría." });
   }
-}
-
+};
 
 export default {
   createCategory,
   getAllCategory,
   getCategoryById,
   updateCategory,
-  deleteCategory
+  deleteCategory,
 };

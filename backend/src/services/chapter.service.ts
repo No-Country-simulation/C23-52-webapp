@@ -38,9 +38,9 @@ export const getChapterByIdService = async (id: string): Promise<ICapitulo> => {
   }
 };
 
-export const updateChapterService = async (id: string): Promise<ICapitulo> => {
+export const updateChapterService = async (id: string, chapter: ICapitulo): Promise<ICapitulo> => {
   try {
-    const updatedChapter = await Capitulo.findByIdAndUpdate(id).exec();
+    const updatedChapter = await Capitulo.findByIdAndUpdate(id, chapter).exec();
 
     return updatedChapter ? updatedChapter : ({} as ICapitulo);
   } catch (error) {

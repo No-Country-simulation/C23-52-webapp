@@ -2,21 +2,51 @@ import { Request, Response } from "express";
 import { Comic } from "../models/Comic";
 import { cache } from "../config/cache";
 import {
+  checkDuplicateComicService,
+  createComicService,
   deleteComicService,
   getAllComicService,
   getComicByIdService,
   updateComicService,
 } from "../services/comic.service";
+import { ComicSchema } from "../validations/comic";
 
 const createComic = async (req: Request, res: Response) => {
   try {
-    const nuevoComic = await Comic.create(req.body);
+    const dataComic = req.body;
 
-    // creo mi comic en mongo
-    // actualizar la cache
+    // validar campos obligatorios
+    const dataValidate = ComicSchema.safeParse(dataComic);
 
-    cache.delete("/api/comics");
-    res.status(201).json(nuevoComic);
+    if (dataValidate.error) {
+      const error = dataValidate.error.errors.map((err) => ({
+        path: err.path[0],
+        message: err.message,
+      }));
+
+      res.status(400).json({
+        message: "Error en la validacion de datos",
+        error: error,
+      });
+      return;
+    }
+
+    // verificar si ya hay duplicado en la base de datos:
+    const comicExist = await checkDuplicateComicService(dataComic.title);
+
+    if (comicExist) {
+      res.status(400).json({ mensaje: "Comic ya existe" });
+      return;
+    }
+
+    const newComic = await createComicService(dataComic);
+
+    res
+      .status(201)
+      .json({ status: "success", data: newComic, message: "Comic creado" });
+
+    // cache.delete("/api/comics");
+    // res.status(201).json(nuevoComic);
   } catch (error) {
     res.status(500).json({ mensaje: "Error al crear comic", error });
   }
@@ -85,6 +115,8 @@ const deleteComic = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
 
+
+    // verificar que no tenga categorias asociadas al comic, etc...
     const comic = await deleteComicService(id);
 
     res.status(200).json({ mensaje: "Comic eliminado", data: comic });

@@ -3,14 +3,14 @@ import cloudinary from "../utils/cloudinaryConfig";
 
 export const uploadCloudinaryService = async ({
   files,
-  authorId,
   comicId,
+  nameChapter
 }: uploadImageParams): Promise<string[]> => {
   try {
     const uploadedUrls: string[] = [];
 
     for (const file of files) {
-      const folderPath = `${authorId}/${comicId}/`;
+      const folderPath = `${comicId}/${nameChapter}/`;
 
       const uploadPromise = new Promise<string>((resolve, reject) => {
         const uploadStream = cloudinary.uploader.upload_stream(

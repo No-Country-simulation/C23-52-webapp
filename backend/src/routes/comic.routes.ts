@@ -20,7 +20,9 @@ router.get(`${PATH_COMIC}/:id`, comicController.getComicById);
 router.put(`${PATH_COMIC}/:id`, comicController.updateComic);
 router.delete(`${PATH_COMIC}/:id`, comicController.deleteComic);
 
-router.get("/", cacheMiddleware(1000 * 60 * 5), comicController.getComics);
-router.post("/", comicController.createComic);
+router.post(PATH_COMIC, comicController.createComic);
+
+// router.get("/", cacheMiddleware(1000 * 60 * 5), comicController.getComics);
+// router.post("/", comicController.createComic);
 
 export default router; 

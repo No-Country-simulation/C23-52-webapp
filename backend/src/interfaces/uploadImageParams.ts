@@ -1,7 +1,7 @@
 interface uploadImageParams {
   files: Express.Multer.File[];
-  authorId: string;
   comicId: string;
+  nameChapter: string;
 }
 
 export default uploadImageParams;

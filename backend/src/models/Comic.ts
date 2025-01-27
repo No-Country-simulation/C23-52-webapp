@@ -1,25 +1,6 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
+import { IComic, ComicSchema, ComicUpdateSchema } from '../validations/comic';
 
-export const ComicSchema = z.object({
-  _id: z.string(),
-  title: z.string().min(1, "El título es obligatorio"),
-  type: z.array(z.string()).min(1, "Debe tener al menos un tipo"),
-  thumbnail: z.string().url("Debe ser una URL válida"),
-  description: z.string().min(10, "La descripción debe tener al menos 10 caracteres"),
-  creator: z.any(),
-  categories: z.array(z.string().regex(/^[0-9a-fA-F]{24}$/, "ID de categoría inválido")),
-  isPublic: z.boolean(),
-  tagsGenero: z.array(z.string().regex(/^[0-9a-fA-F]{24}$/, "ID de tag inválido")),
-  puntuacion: z.number().min(1).max(5),
-  views: z.number().min(0),
-  createdAt: z.date().optional(),
-  updatedAt: z.date().optional()
-});
-
-export const ComicUpdateSchema = ComicSchema.partial();
-
-export type IComic = z.infer<typeof ComicSchema>;
 
 const comicSchema = new Schema<IComic>(
   {

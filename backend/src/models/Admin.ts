@@ -1,16 +1,6 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { z } from 'zod';
+import { IAdmin, AdminSchema, AdminUpdateSchema } from '../validations/admin';
 
-export const AdminSchema = z.object({
-    _id: z.string(),
-    idUser: z.any(),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional()
-});
-
-export const AdminUpdateSchema = AdminSchema.partial();
-
-export type IAdmin = z.infer<typeof AdminSchema>;
 
 const adminSchema = new Schema<IAdmin>(
     {

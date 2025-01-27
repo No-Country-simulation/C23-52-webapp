@@ -1,4 +1,5 @@
 import { Router } from "express";
+import comicRoutes from "./comic.routes";
 import loginRoutes from "./login.routes";
 import registerRoutes from "./register.routes";
 
@@ -10,5 +11,7 @@ router.get("/", (req, res) => {
 
 router.use(loginRoutes);
 router.use(registerRoutes);
+
+router.use("/comics", comicRoutes);
 
 export default router;

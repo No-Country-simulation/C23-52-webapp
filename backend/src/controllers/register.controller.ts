@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { createUser } from "../services/user.service";
 import { ERROR_MESSAGES } from "../utils/consts/serviceUser";
+import { handleRole, RolesActions} from "../services/role.service";
+import { UserRole } from "../validations/user";
 
 /**
  * Controlador para manejar la creación de usuarios.
@@ -13,7 +15,7 @@ export const CreateUserController = async (
   res: Response
 ): Promise<void> => {
   try {
-    const { email, username, role } = req.body;
+    const { email, username } = req.body;
     //const sessionCookie = req.cookies?.appSession;
 
     // if (!sessionCookie) {
@@ -31,15 +33,18 @@ export const CreateUserController = async (
       return;
     }
 
-    const newUser = await createUser({
+    const newUser:any = await createUser({
       email,
       username,
-      role,
+      role: UserRole.LECTOR,
     });
+
+    const relatedRole = await handleRole(newUser.role, newUser._id , RolesActions.assign);
 
     res.status(201).json({
       message: ERROR_MESSAGES.SUCCESS.USER_CREATED,
       user: newUser,
+      relatedRole,
     });
   } catch (error: any) {
     if (error.message === ERROR_MESSAGES.USER.DUPLICATE_EMAIL_ERROR) {

@@ -1,4 +1,5 @@
-import { User, IUser } from "../models/User";
+import { User } from "../models/User";
+import { IUser } from "../validations/user";
 import { ERROR_IDENTIFIERS, ERROR_MESSAGES } from "../utils/consts/serviceUser";
 
 /**
@@ -96,9 +97,6 @@ export const createUser = async (userData: IUser): Promise<IUser> => {
  * @returns {Promise<IUser | null>} - Una promesa que resuelve con la información del usuario actualizado o null si no se encuentra.
  */
 
-
-
-
 export const updateUserById = async (
   userId: string,
   updateData: Partial<IUser>
@@ -110,6 +108,15 @@ export const updateUserById = async (
     return updatedUser;
   } catch (error) {
     throw new Error("Error al actualizar el usuario");
+  }
+};
+
+export const userByid = async (userId: string): Promise<IUser | null> => {
+  try {
+    const user = await User.findById(userId).exec();
+    return user;
+  } catch (error) {
+    throw new Error("Error al obtener el usuario");
   }
 };
 

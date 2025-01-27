@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { IMensaje, MensajeResponseType } from "../validations/mensaje";
+import { MensajeInput, MensajeResponseInput } from "../validations/mensaje";
 import { Mensaje } from "../models/Mensaje";
 
 export const getMessages = async (req: Request, res: Response) => {
     try {
-        const messages: MensajeResponseType[] = await Mensaje.find();
+        const messages: MensajeResponseInput[] = await Mensaje.find();
         res.json({
             status: "success",
             data: messages,
@@ -22,7 +22,7 @@ export const getMessages = async (req: Request, res: Response) => {
 export const getMessageById = async (req: Request, res: Response) => {
     try {
         const id: string = req.params.id;
-        const message: MensajeResponseType | null = await Mensaje.findById(id);
+        const message: MensajeResponseInput | null = await Mensaje.findById(id);
         if(!message) {
             throw new Error("Mensaje no encontrado");
         }
@@ -42,8 +42,8 @@ export const getMessageById = async (req: Request, res: Response) => {
 
 export const createMessage = async (req: Request, res: Response) => {
     try {
-        const message: IMensaje = req.body;
-        const newMessage: MensajeResponseType = await Mensaje.create(message);
+        const message: MensajeInput = req.body;
+        const newMessage: MensajeInput = await Mensaje.create(message);
         res.json({
             status: "success",
             data: newMessage,

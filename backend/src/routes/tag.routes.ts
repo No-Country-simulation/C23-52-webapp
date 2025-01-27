@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { getTags, createTag, updateTag, deleteTag, getTagById } from "../controllers/tag.controller";
 import { CreateServerSuccessSchema, createStandardResponses, registry } from '../utils/swaggerHelpers';
-import { GetAllTagOutputSchema,CreateTagInputBodySchema, TagInputPathParamsSchema, GetTagOutputSchema, UpdateTagInputBodySchema } from "../validations/tag";
+import { GetAllTagOutputSchema,CreateTagInputBodySchema, TagInputPathParamsSchema, GetTagOutputSchema, UpdateTagInputBodySchema, DeleteTagOutputSchema } from "../validations/tag";
 
 const router = Router();
 
@@ -63,7 +63,7 @@ registry.registerPath({
     request: {
         params: TagInputPathParamsSchema
     },
-    responses: createStandardResponses(CreateServerSuccessSchema(GetTagOutputSchema), 'Tag eliminado')
+    responses: createStandardResponses(DeleteTagOutputSchema, 'Tag eliminado')
 });
 
 

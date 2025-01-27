@@ -25,7 +25,9 @@ export const UpdateTagInputBodySchema = TagUpdateSchema.describe('Tag');
 export const GetTagOutputSchema = TagResponseSchema.describe('Tag');
 export const GetAllTagOutputSchema = z.array(TagResponseSchema).describe('Lista de tags');
 
-
+export const DeleteTagOutputSchema = z.object({
+    message: z.string().describe('Mensaje de éxito'),
+});
 
 export type TagInput = z.infer<typeof TagSchema>;
 export type TagUpdateInput = z.infer<typeof TagUpdateSchema>;

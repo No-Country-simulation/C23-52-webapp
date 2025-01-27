@@ -1,8 +1,8 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { IMensaje, MensajeSchema } from '../validations/mensaje';
+import { MensajeInput, MensajeSchema } from '../validations/mensaje';
 
 
-const mensajeSchema = new Schema<IMensaje>(
+const mensajeSchema = new Schema<MensajeInput>(
     {
         message: { type: String, required: true },
         idUserEmisor: { type: Schema.Types.ObjectId, ref: 'User', required: true },
@@ -23,4 +23,4 @@ mensajeSchema.pre('save', async function (next) {
     }
 });
 
-export const Mensaje = model<IMensaje>('Mensaje', mensajeSchema); 
+export const Mensaje = model<MensajeInput>('Mensaje', mensajeSchema); 

@@ -1,7 +1,7 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { ITag, TagSchema, TagUpdateSchema } from '../validations/tag';
+import { TagInput, TagSchema, TagUpdateSchema } from '../validations/tag';
 
-const tagSchema = new Schema<ITag>(
+const tagSchema = new Schema<TagInput>(
     {
         name: { type: String, required: true, unique: true },
         description: { type: String, required: true },
@@ -31,4 +31,4 @@ tagSchema.pre('findOneAndUpdate', async function (next) {
     }
 });
 
-export const Tag = model<ITag>('Tag', tagSchema); 
+export const Tag = model<TagInput>('Tag', tagSchema); 

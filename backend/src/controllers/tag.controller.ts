@@ -66,7 +66,7 @@ export const getTagsByIds = async (req: Request, res: Response) => {
 export const createTag: RequestHandler = async (req: Request, res: Response): Promise<void> => {
     try {
         const tag: TagInput = req.body;
-        const nuevoTag: TagResponseInput = await Tag.create(tag);
+        const nuevoTag: TagInput = await Tag.create(tag);
         res.json({
             status: "success",
             data: nuevoTag,

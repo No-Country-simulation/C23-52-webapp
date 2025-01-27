@@ -6,7 +6,7 @@ import { Admin } from "../models/Admin";
 import { UserRole } from "../validations/user";
 import { handleRole, RolesActions } from "../services/role.service";
 import { userByid } from "../services/user.service";
-
+import { deleteUserById } from "../services/user.service";
 /**
  * Obtiene un usuario por su ID.
  *
@@ -147,7 +147,7 @@ export const deleteUser = async (req: Request, res: Response) => {
     await Promise.all(deletionPromises);
 
     // Eliminar el usuario de la base de datos
-    await User.findByIdAndDelete(id);
+    await deleteUserById(id);
 
     res.status(200).json({ message: "Usuario eliminado correctamente." });
   } catch (error: any) {

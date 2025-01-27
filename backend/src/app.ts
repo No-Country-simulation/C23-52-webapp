@@ -5,11 +5,21 @@ import cloudinaryRoutes from "./routes/cloudinary.routes";
 import comicRoutes from "./routes/comic.routes";
 import chapterRoutes from "./routes/chapter.routes";
 import categoryRoutes from "./routes/category.routes";
+import cookieParser from "cookie-parser";
 
+const cors = require("cors");
 
 const app = express();
 
+app.use(
+  cors({
+    origin: "http://localhost:3001",
+    credentials: true,
+  })
+);
+
 app.use(express.json());
+app.use(cookieParser());
 
 dbConnection();
 

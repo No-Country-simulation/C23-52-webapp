@@ -6,6 +6,7 @@ import comicRoutes from "./routes/comic.routes";
 import chapterRoutes from "./routes/chapter.routes";
 import categoryRoutes from "./routes/category.routes";
 import cookieParser from "cookie-parser";
+// import cors from "cors";
 
 const cors = require("cors");
 

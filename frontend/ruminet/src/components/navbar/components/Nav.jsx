@@ -9,7 +9,7 @@ const NavLinks = () => {
       <Link href="/Writers">Writers</Link>
       <Link href="/Readers">Readers</Link>
       <Link href="/Contact">Contact</Link>
-      <Link className="bg-[#FF6D00] hover:bg-[#d06514] p-1.5 rounded-xl" href="/sign-up">Sign Up</Link>
+      <Link className="bg-[#FF6D00] hover:bg-[#d06514] p-1.5 rounded-xl" href="/api/auth/login">Sign Up</Link>
       <Link className="bg-[#FF6D00] hover:bg-[#d06514] p-1.5 rounded-xl" href="/sign-in">Sign In</Link>
     </>
   );

@@ -243,7 +243,7 @@ export const Main = () => {
           </div>
         ))}
       </section>
-      <section className='flex gap-12 pt-16 px-4'>
+      <section className='flex flex-col gap-12 pt-16 px-4'>
         <Image alt='crear' src='/images/creador.png' width={759} height={100} />
         <div className='flex flex-col items-center justify-around'>
           <div className='flex flex-col justify-start items-center px-28 gap-8'>

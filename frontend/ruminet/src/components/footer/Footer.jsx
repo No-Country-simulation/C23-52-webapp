@@ -1,6 +1,7 @@
 //Built in next/image component (accesibility ensured) )
 import Image from "next/image";
 
+
 // Footer component
 export const Footer = () => {
   return (

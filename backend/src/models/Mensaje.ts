@@ -1,5 +1,5 @@
 import { CallbackError, Schema, model } from 'mongoose';
-import { IMensaje, MensajeSchema, MensajeUpdateSchema } from '../validations/mensaje';
+import { IMensaje, MensajeSchema } from '../validations/mensaje';
 
 
 const mensajeSchema = new Schema<IMensaje>(
@@ -17,15 +17,6 @@ const mensajeSchema = new Schema<IMensaje>(
 mensajeSchema.pre('save', async function (next) {
     try {
         MensajeSchema.parse(this.toObject());
-        next();
-    } catch (error: any) {
-        next(error as CallbackError);
-    }
-});
-
-mensajeSchema.pre('findOneAndUpdate', async function (next) {
-    try {
-        MensajeUpdateSchema.parse(this.getUpdate());
         next();
     } catch (error: any) {
         next(error as CallbackError);

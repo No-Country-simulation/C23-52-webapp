@@ -31,27 +31,27 @@ export const Footer = () => {
         <div className="  flex-col justify-center items-center md:w-1/3">
           <ul className=" flex flex-col w-full justify-evenly items-center">
             <li className="">
-              <a className="footer-navigation-items" href="/">
+              <a className="footer-navigation-items hover:text-[#fe6d01]" href="/">
                 Inicio
               </a>
             </li>
             <li>
-              <a className="footer-navigation-items" href="/">
+              <a className="footer-navigation-items hover:text-[#fe6d01]"  href="/">
                 Creadores
               </a>
             </li>
             <li>
-              <a className="footer-navigation-items" href="/">
+              <a className="footer-navigation-items hover:text-[#fe6d01]" href="/">
                 Lectores
               </a>
             </li>
             <li>
-              <a className="footer-navigation-items" href="/">
+              <a className="footer-navigation-items hover:text-[#fe6d01]" href="/">
                 Accesibilidad
               </a>
             </li>
             <li>
-              <a className="footer-navigation-items" href="/">
+              <a className="footer-navigation-items hover:text-[#fe6d01]" href="/">
                 Contacto
               </a>
             </li>

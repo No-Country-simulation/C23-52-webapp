@@ -70,3 +70,9 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Footer */
+.footer-navigation-items:hover {
+  transition: all 0.4s ease;
+  color:       red
+}

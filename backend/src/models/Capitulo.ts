@@ -4,6 +4,7 @@ import { ICapitulo, CapituloSchema, CapituloUpdateSchema } from '../validations/
 
 const capituloSchema = new Schema<ICapitulo>(
     {
+        nameChapter: { type: String, required: true, unique: true },
         idComic: {type: Schema.Types.ObjectId, ref: 'Comic', required: true},
         thumbnail: {type: String, required: true},
         nameComic: {type: String, required: true},

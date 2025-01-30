@@ -1,4 +1,6 @@
 import express from "express";
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSpec } from './config/swagger';
 import routes from "./routes";
 import { dbConnection } from "./config/db";
 import cloudinaryRoutes from "./routes/cloudinary.routes";
@@ -23,6 +25,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 dbConnection();
+
+// Documentación Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api", routes);
 app.use("/api", cloudinaryRoutes);

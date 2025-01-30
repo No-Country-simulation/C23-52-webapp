@@ -5,9 +5,21 @@ export const MensajeSchema = z.object({
     idUserEmisor: z.any(),
     idUserReceptor: z.any(),
 });
-export const MensajeResponse = MensajeSchema.extend({
-    _id: z.any()
+export const MensajeResponseSchema = MensajeSchema.extend({
+    _id: z.any(),
+    createdAt: z.date(),
+    updatedAt: z.date()
 });
 
-export type MensajeResponseType = z.infer<typeof MensajeResponse>;
-export type IMensaje = z.infer<typeof MensajeSchema>;
+export const MensajeInputPathParamsSchema = z.object({
+    id: z.string().describe('Identificador del mensaje'),
+});
+
+export const GetMessageOutputSchema = MensajeResponseSchema.describe('Mensaje');
+export const GetAllMessageOutputSchema = z.array(MensajeResponseSchema).describe('Lista de mensajes');
+
+export const CreateMessageInputBodySchema = MensajeSchema.describe('Mensaje');
+
+
+export type MensajeInput = z.infer<typeof MensajeSchema>;
+export type MensajeResponseInput = z.infer<typeof MensajeResponseSchema>;

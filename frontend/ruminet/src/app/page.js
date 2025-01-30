@@ -1,6 +1,7 @@
 import { Footer } from '@/components/footer/Footer';
 import { Main } from '@/components/main/Main';
 import { Navbar } from '@/components/navbar/Navbar';
+// import SideBar from '@/components/navbar/components/Hamburguer';
 
 export default function HomePage() {
   return (
@@ -8,6 +9,7 @@ export default function HomePage() {
       <Navbar />
       <Main />
       <Footer />
+      {/* <SideBar/> */}
     </div>
   );
 }

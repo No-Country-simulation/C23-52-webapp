@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 export const CapituloSchema = z.object({
+    nameChapter: z.string().min(1, "El nombre es obligatorio"),
     idComic: z.any(),
     thumbnail: z.string().url("Debe ser una URL válida"),
     nameComic: z.string().min(1, "El nombre es obligatorio"),

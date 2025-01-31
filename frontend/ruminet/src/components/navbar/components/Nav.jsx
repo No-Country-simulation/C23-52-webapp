@@ -8,7 +8,7 @@ const NavLinks = () => {
   const { user } = useUser();
   return (
     <>
-      <Link className="hover:text-slate-200"  href="/writers">Writers</Link>
+      <Link className="hover:text-slate-200"  href="/creators">Creators</Link>
       <Link className="hover:text-slate-200" href="/readers">Readers</Link>
       <Link className="hover:text-slate-200" href="/contact">Contact</Link>
       <Link className="hover:text-slate-200" href="/accessibility">Accessibility</Link>

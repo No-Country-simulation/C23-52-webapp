@@ -22,8 +22,8 @@ const menuItems = [
   {
     title: "Services",
     submenu: [
+      { title: "Creators", href: "/creators" },
       { title: "Readers", href: "/readers" },
-      { title: "Writers", href: "/writers" },
     ],
   },
   { title: "Contact", href: "/contact" },

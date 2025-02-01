@@ -10,7 +10,7 @@ import { plans } from "../constants/membership";
 export default function MemberShipCardCreators() {
   const [isYearly, setIsYearly] = useState(false);
   const togglePricingPeriod = (value) => setIsYearly(parseInt(value) === 1);
-
+    console.log(isYearly)
   return (
     <div>
       <PricingHeader

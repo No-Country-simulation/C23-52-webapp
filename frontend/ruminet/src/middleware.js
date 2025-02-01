@@ -4,5 +4,5 @@ export default withMiddlewareAuthRequired();
 
 
 export const config = {
-    matcher: ["/protected"],
+    matcher: ["/protected", "/creators"],
   };

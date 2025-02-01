@@ -3,29 +3,34 @@ import Link from "next/link";
 
 import SideBar from "./Hamburguer";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import CustomButton from "@/components/CustomButton";
 
 const NavLinks = () => {
   const { user } = useUser();
   return (
     <>
-      <Link className="hover:text-slate-200"  href="/creators">Creators</Link>
-      <Link className="hover:text-slate-200" href="/readers">Readers</Link>
-      <Link className="hover:text-slate-200" href="/contact">Contact</Link>
-      <Link className="hover:text-slate-200" href="/accessibility">Accessibility</Link>
+      <Link className="hover:text-slate-200" href="/creators">
+        Creators
+      </Link>
+      <Link className="hover:text-slate-200" href="/readers">
+        Readers
+      </Link>
+      <Link className="hover:text-slate-200" href="/contact">
+        Contact
+      </Link>
+      <Link className="hover:text-slate-200" href="/accessibility">
+        Accessibility
+      </Link>
       {!user ? (
         <>
+        <CustomButton text={"Comienza a crear"}/>
           <Link
             className="bg-[#E10D0D] hover:bg-[#B00B0B] p-2 rounded-lg"
             href="/api/auth/login"
           >
             Sign Up
           </Link>
-          <Link
-            className="bg-[#E10D0D] hover:bg-[#B00B0B] p-2 rounded-lg"
-            href="/api/auth/login"
-          >
-            Sign In
-          </Link>
+          <CustomButton text={"Comienza a crear"}/>
         </>
       ) : (
         <p>UserLogo</p>

@@ -4,6 +4,7 @@ import { registry } from '../utils/swaggerHelpers';
 // Importar las rutas para asegurarnos que se registren
 import '../routes/tag.routes';
 import '../routes/mensaje.routes';
+import "../routes/comic.routes";
 
 const generator = new OpenApiGeneratorV3(registry.definitions);
 

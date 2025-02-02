@@ -13,6 +13,26 @@ export const ComicSchema = z.object({
   views: z.number().min(0),
 });
 
+export const ComicResponseSchema = ComicSchema.extend({
+  _id: z.any(),
+  createdAt: z.date(),
+  updatedAt: z.date()
+})
+
 export const ComicUpdateSchema = ComicSchema.partial();
+
+export const ComicInputPathParamsSchema = z.object({
+  id: z.string().describe('Identificador del comic'),
+});
+
+export const CreateComicInputBodySchema = ComicSchema.describe('Comic');
+export const UpdateComicInputBodySchema = ComicUpdateSchema.describe('Comic');
+
+export const GetComicOutputSchema = ComicResponseSchema.describe('Comic');
+export const GetAllComicOutputSchema = z.array(ComicSchema).describe('Comics');
+
+export const DeleteComicOutputSchema = z.object({
+  message: z.string().describe('Mensaje de éxito'),
+})
 
 export type IComic = z.infer<typeof ComicSchema>;

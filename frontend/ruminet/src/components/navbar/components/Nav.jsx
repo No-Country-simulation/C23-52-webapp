@@ -30,7 +30,6 @@ const NavLinks = () => {
           >
             Sign Up
           </Link>
-          <CustomButton text={"Comienza a crear"}/>
         </>
       ) : (
         <p>UserLogo</p>
@@ -42,7 +41,7 @@ const NavLinks = () => {
 export default function Nav() {
   return (
     <nav>
-      <div className="hidden text-md lg:text-xl  font-semibold  items-center md:flex md:gap-14 lg:gap-24">
+      <div className="hidden text-md lg:text-xl  font-semibold  items-center md:flex md:gap-14 lg:gap-20">
         <NavLinks />
       </div>
       <div className="md:hidden">

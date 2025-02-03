@@ -8,7 +8,7 @@ export const CardSections = ({ title, image, autor, estreno }) => {
         src={image}
         width={270}
         height={540}
-        className='aspect-[9/16] object-cover w-20 h-40 lg:w-[313px] lg:h-[395px] mb-3'
+        className='aspect-[9/16] object-cover h-40 w-full lg:w-[313px] lg:h-[395px] mb-3'
       />
       <span className='text-sm font-bold lg:text-base text-green-300'>
         {estreno}

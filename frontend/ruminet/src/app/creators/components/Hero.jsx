@@ -29,7 +29,7 @@ export default function Hero() {
           colaborar, no dudes en contactarnos para más información. Esperamos
           poder contar con tu apoyo y construir juntos un futuro creativo.
         </p>
-        <CustomButton text={"Comienza a crear"} />
+        <CustomButton href={"/publish"} text={"Comienza a crear"} />
       </div>
     </div>
   );

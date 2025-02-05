@@ -1,6 +1,5 @@
 "use client";
 
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Card,
   CardContent,
@@ -9,10 +8,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
+import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 export const PricingHeader = ({ title, subtitle }) => (

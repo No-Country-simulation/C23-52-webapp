@@ -1,0 +1,156 @@
+export const homeSections = [
+  {
+    id: 'abc',
+    categoryTitle: 'Más populares',
+    items: [
+      {
+        id: '1',
+        title: 'Espíritu de dragón',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-1.jpg',
+      },
+      {
+        id: '2',
+        title: 'Pétalos de afecto',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-2.png',
+      },
+      {
+        id: '3',
+        title: 'El último juramento',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-3.jpg',
+      },
+      {
+        id: '4',
+        title: 'Ecos del futuro',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-4.png',
+      },
+      {
+        id: '5',
+        title: 'Romance de verano',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-5.jpg',
+      },
+    ],
+  },
+  {
+    id: 'edf',
+    categoryTitle: 'Novedades',
+    items: [
+      {
+        id: '1',
+        title: 'Espíritu de dragón',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-1.jpg',
+      },
+      {
+        id: '2',
+        title: 'Pétalos de afecto',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-2.png',
+      },
+      {
+        id: '3',
+        title: 'El último juramento',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-3.jpg',
+      },
+      {
+        id: '4',
+        title: 'Ecos del futuro',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-4.png',
+      },
+      {
+        id: '5',
+        title: 'Romance de verano',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-5.jpg',
+      },
+    ],
+  },
+  {
+    id: '1ads',
+    categoryTitle: 'Exclusivos Ruminet',
+    items: [
+      {
+        id: '1',
+        title: 'Espíritu de dragón',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-1.jpg',
+      },
+      {
+        id: '2',
+        title: 'Pétalos de afecto',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-2.png',
+      },
+      {
+        id: '3',
+        title: 'El último juramento',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-3.jpg',
+      },
+      {
+        id: '4',
+        title: 'Ecos del futuro',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-4.png',
+      },
+      {
+        id: '5',
+        title: 'Romance de verano',
+        autor: 'Lucía Gutierrez',
+        estreno: 'Lun-Mie',
+        image: '/images/sections/popular/comic-5.jpg',
+      },
+    ],
+  },
+  {
+    id: 'efd',
+    categoryTitle: 'Artistas destacados',
+    items: [
+      {
+        id: '1',
+        autor: 'Viviana Rivera',
+        image: '/images/sections/artists/artist-1.png',
+      },
+      {
+        id: '2',
+        autor: 'Cristian Pérez',
+        image: '/images/sections/artists/artist-2.png',
+      },
+      {
+        id: '3',
+        autor: 'Lucia Galván',
+        image: '/images/sections/artists/artist-3.png',
+      },
+      {
+        id: '4',
+        autor: 'Ricardo Maldonado',
+        image: '/images/sections/artists/artist-4.png',
+      },
+      {
+        id: '5',
+        autor: 'Pepe Alcántara',
+        image: '/images/sections/artists/artist-5.jpg',
+      },
+    ],
+  },
+];

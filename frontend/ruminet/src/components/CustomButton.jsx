@@ -4,7 +4,7 @@ import React from 'react'
 export default function CustomButton({text, href}) {
   if (!href) {
     console.warn("El valor de 'href' no está definido para CustomButton.");
-    return null; // Evita el render si `href` no es válido
+    return null; 
   }
   
   return (

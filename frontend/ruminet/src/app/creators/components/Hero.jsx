@@ -17,10 +17,10 @@ export default function Hero() {
         <h2 className="text-[#E10D0D] text-2xl font-bold ">
           En Ruminet !tu marca puede crecer mas!
         </h2>
-        <span className="text-2xl font-semibold">
+        <span className="text-2xl font-semibold text-white">
           Patrocina a nuestros creadores y sé parte de su exito
         </span>
-        <p className="p-2 text-md font-semibold">
+        <p className="p-2 text-md font-semibold text-white">
           Nos encantaría ofrecerte la oportunidad de patrocinar a nuestros
           talentosos artistas, ayudando a tu marca a crecer mientras apoyas a la
           comunidad creativa. Al patrocinar a nuestros creadores, no solo

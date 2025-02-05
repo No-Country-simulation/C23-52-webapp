@@ -9,7 +9,7 @@ export const creators = [
   {
     id: 1,
     name: "Pepe Peperoni",
-    description: "Creadora y guionista de El ultimo juramento",
+    description: "Creadora y guionista de El papa",
     image: "/images/creators-images/men-writing.png",
     alt:"Card Featured Creators"
   },

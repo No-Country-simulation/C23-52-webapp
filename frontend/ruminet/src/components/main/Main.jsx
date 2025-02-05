@@ -8,6 +8,7 @@ import { Button } from '../ui/button';
 import { Category } from './category/Category';
 import { carouselImages } from './mocks/carouselImages';
 import { homeSections } from './mocks/homeSections';
+import Link from 'next/link';
 
 export const Main = () => {
   return (
@@ -53,8 +54,8 @@ export const Main = () => {
               ideal para destacar.
             </p>
           </div>
-          <Button variant='primary' className='px-20'>
-            Creadores
+          <Button asChild variant='primary' className='px-20'>
+            <Link href='/creators'>Creadores</Link>
           </Button>
         </div>
       </section>

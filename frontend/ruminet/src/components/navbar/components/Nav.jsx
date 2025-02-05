@@ -1,25 +1,26 @@
 "use client";
 import Link from "next/link";
 
-import SideBar from "./Hamburguer";
-import { useUser } from "@auth0/nextjs-auth0/client";
 import CustomButton from "@/components/CustomButton";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import SideBar from "./Hamburguer";
+import Avatar from "./Avatar";
 
 const NavLinks = () => {
   const { user } = useUser();
   return (
     <>
       <Link className="hover:text-slate-200" href="/creators">
-        Creators
+        Creadores
       </Link>
       <Link className="hover:text-slate-200" href="/readers">
-        Readers
+        Lectores
       </Link>
       <Link className="hover:text-slate-200" href="/contact">
-        Contact
+        Contacto
       </Link>
       <Link className="hover:text-slate-200" href="/accessibility">
-        Accessibility
+        Accesibilidad
       </Link>
       {!user ? (
         <>
@@ -28,11 +29,11 @@ const NavLinks = () => {
             className="bg-[#E10D0D] hover:bg-[#B00B0B] p-2 rounded-lg"
             href="/api/auth/login"
           >
-            Sign Up
+            Registrar
           </Link>
         </>
       ) : (
-        <p>UserLogo</p>
+        <Avatar/>
       )}
     </>
   );

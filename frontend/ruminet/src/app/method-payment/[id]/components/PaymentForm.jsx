@@ -45,7 +45,6 @@ export const PaymentForm = ({ setIsSuccessfully }) => {
   });
 
   const onSubmit = form.handleSubmit((data) => {
-    console.log(data);
     setIsLoading(true)
     setTimeout(() => {
       setIsSuccessfully(true);

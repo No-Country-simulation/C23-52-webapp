@@ -1,189 +1,20 @@
-'use client';
-
 import Image from 'next/image';
 
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/dist/css/splide.min.css';
-
-import '@splidejs/react-splide/css/sea-green';
-
-import MemberShipCardCreators from '@/app/creators/components/MembershipCardCreators';
 import { Apple, Play } from 'lucide-react';
+
+import { SplideSlider } from './splide-slider/SplideSlider';
+import MemberShipCardCreators from '@/app/creators/components/MembershipCardCreators';
 import { Button } from '../ui/button';
-import { CardSections } from './components/CardSections';
-
-const homeSections = [
-  {
-    id: 'abc',
-    categoryTitle: 'Más populares',
-    items: [
-      {
-        id: '1',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '2',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '3',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '4',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
- 
-    ],
-  },
-  {
-    id: 'edf',
-    categoryTitle: 'Novedades',
-    items: [
-      {
-        id: '1',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '2',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '3',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '4',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-
-    ],
-  },
-  {
-    id: '1ads',
-    categoryTitle: 'Exclusivos Ruminet',
-    items: [
-      {
-        id: '1',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '2',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '3',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '4',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-
-    ],
-  },
-  {
-    id: 'efd',
-    categoryTitle: 'Artistas destacados',
-    items: [
-      {
-        id: '1',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '2',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '3',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
-      {
-        id: '4',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      }
-    ],
-  },
-];
-
-const carouselImages = [
-  { id: '1', img: '/images/carrusel.png' },
-  { id: '2', img: '/images/lumi1.png' },
-  { id: '3', img: '/images/luni2.png' },
-];
+import { Category } from './category/Category';
+import { carouselImages } from './mocks/carouselImages';
+import { homeSections } from './mocks/homeSections';
 
 export const Main = () => {
   return (
     <main>
       <section className='bg-black'>
-        <Splide
-          options={{
-            rewind: true,
-            autoplay: true,
-          }}
-          aria-label='My Favorite Images'
-        >
-          {carouselImages.map((carouselImage) => (
-            <SplideSlide key={carouselImage.id}>
-              <Image
-                src={carouselImage.img}
-                height={150}
-                width={150}
-                alt='Image 1'
-                className='w-full h-48 lg:h-[510px] object-contain'
-              />
-            </SplideSlide>
-          ))}
-        </Splide>
-        <div className='flex gap-8 flex-col justify-center items-center pb-12 px-12'>
+        <SplideSlider carouselImages={carouselImages} />
+        <div className='flex gap-8 flex-col justify-center items-center p-12 pt-16'>
           <h2 className='lg:text-[32px] font-bold text-white text-center'>
             El espacio donde las historias cobran vida
           </h2>
@@ -196,39 +27,24 @@ export const Main = () => {
           <Button variant='primary'>Únete ahora</Button>
         </div>
       </section>
-
       {/* Sección Hero */}
-      <section className='flex gap-8 flex-wrap mt-8 px-4'>
-        {homeSections.map((homeSection) => (
-          <div key={homeSection.id} className='w-full flex flex-col gap-8'>
-            <div className='flex justify-between items-center'>
-              <h3 className='font-bold lg:text-xl'>
-                {homeSection.categoryTitle}
-              </h3>
-              <Button variant='primary'>Ver &#43;</Button>
-            </div>
-            <div className='flex gap-4 lg:gap-6 justify-start flex-wrap'>
-              {homeSection.items.map((item) => (
-                <CardSections key={item.id} {...item} />
-              ))}
-            </div>
-          </div>
-        ))}
-      </section>
-      <section className='flex flex-col sm:flex-row gap-12 pt-16 px-4'>
+      <Category homeSections={homeSections} />
+
+      {/* Sección Creador */}
+      <section className='w-full xl:h-[650px] sm:grid-cols-2 grid xl:grid-cols-2 pt-16 px-4 overflow-hidden container place-content-center m-auto'>
         <Image
-          alt='crear'
+          alt='creador'
           src='/images/creador.png'
           width={900}
           height={600}
-          className='w-full h-auto object-cover lg:w-[759px]'
+          className='w-full object-contain lg:h-[559px]'
         />
-        <div className='flex flex-col items-center justify-around gap-8'>
-          <div className='flex flex-col justify-start items-center lg:px-28 gap-8'>
-            <h4 className='text-[#E10D0D] font-bold lg:text-4xl'>
+        <div className='flex flex-col items-center lg:justify-evenly gap-8 px-6 lg:px-0 sm:justify-center'>
+          <div className='flex flex-col justify-start items-center gap-8'>
+            <h4 className='text-[#E10D0D] font-bold lg:text-4xl text-center mt-8 sm:mt-0'>
               ¡Bienvenido a un espacio donde tu creatividad no tiene límites!
             </h4>
-            <p className='font-bold lg:text-2xl'>
+            <p className='font-bold lg:text-xl'>
               En nuestra plataforma, los historietistas tienen un espacio único
               para dar vida a sus historias. <br />
               Comparte tus obras, conecta con una comunidad apasionada y haz
@@ -237,13 +53,15 @@ export const Main = () => {
               ideal para destacar.
             </p>
           </div>
-          <Button variant='primary'>Creadores</Button>
+          <Button variant='primary' className='px-20'>
+            Creadores
+          </Button>
         </div>
       </section>
       <section className='flex flex-col gap-5 pt-16 px-4'>
-        <h2 className='font-bold text-xl'>Membresías Mensuales</h2>
+        <h2 className='font-bold text-xl'>Membresías</h2>
         <div className='flex justify-center'>
-          <MemberShipCardCreators/>
+          <MemberShipCardCreators />
         </div>
       </section>
       <section className='flex flex-col justify-center items-center gap-6 my-5 lg:gap-12 lg:my-10 px-4'>

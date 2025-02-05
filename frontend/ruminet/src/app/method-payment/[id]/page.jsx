@@ -14,7 +14,7 @@ export default function MethodPayment() {
         <div className="lg:block hidden">
         <PricingCard />
         </div>
-        <div className=" flex flex-col">
+        <div className="flex flex-col">
         <h2 className="text-2xl font-bold mb-4">Soporte y Pago Seguro</h2>
           <p className="text-base mb-5">
             Completa el siguiente formulario para finalizar tu pago. Tu

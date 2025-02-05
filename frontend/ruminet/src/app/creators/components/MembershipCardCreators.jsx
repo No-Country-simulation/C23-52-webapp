@@ -10,7 +10,7 @@ import { plans } from "../constants/membership";
 export default function MemberShipCardCreators() {
   const [isYearly, setIsYearly] = useState(false);
   const togglePricingPeriod = (value) => setIsYearly(parseInt(value) === 1);
-    console.log(isYearly)
+
   return (
     <div>
       <PricingHeader
@@ -20,7 +20,7 @@ export default function MemberShipCardCreators() {
       <PricingSwitch onSwitch={togglePricingPeriod} />
       <section className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-8 mt-8">
         {plans.map((plan) => {
-          return <PricingCard key={plan.title} {...plan} isYearly={isYearly} />;
+          return <PricingCard url={plan.url} key={plan} {...plan} isYearly={isYearly} />;
         })}
       </section>
     </div>

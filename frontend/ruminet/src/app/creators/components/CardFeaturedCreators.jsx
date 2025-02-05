@@ -15,7 +15,7 @@ export default function CardFeaturedCreators() {
             alt={creator.alt}
             className="object-cover rounded-lg"
           />
-          <div className="md:py-5 text-pretty text-center">
+          <div className="md:py-5 text-pretty text-center text-white">
             <h2 className="px-2 font-semibold ">{creator.name}</h2>
             <p className="px-2 py-3">{creator.description}</p>
             <CustomButton text={"Ver Perfil"}/>

@@ -1,7 +1,6 @@
-import React from "react";
-import { creators } from "../constants/featuredCreators";
-import Image from "next/image";
 import CustomButton from "@/components/CustomButton";
+import Image from "next/image";
+import { support } from "../constants/featuredCreators";
 
 export default function SupportCreators() {
   return (
@@ -11,14 +10,14 @@ export default function SupportCreators() {
         <p className="text-xl dont-semibold">Tu donacion ayuda a mantener la plataforma y a los artistas</p>
       </div>
       <div className="flex md:justify-evenly justify-around">
-        <div className="md:flex flex-col hidden gap-5">
-          {creators.map((creator) => (
-            <ul className="border-lg rounded-lg bg-black" key={creator.id}>
+      <div className="md:flex flex-col hidden gap-5">
+          {support.map((supportImage) => (
+            <ul className="border-lg rounded-lg mb-10 bg-black" key={supportImage.id}>
               <Image
-                src={creator.image}
+                src={supportImage.image}
                 width={100}
                 height={50}
-                alt={creator.alt}
+                alt={supportImage.alt}
                 className="object-cover rounded-lg"
               />
             </ul>
@@ -35,13 +34,13 @@ export default function SupportCreators() {
           <p className="text-center text-xl font-semibold">Dinero acumulado: $100</p>
         </div>
         <div className="md:flex flex-col hidden gap-5">
-          {creators.map((creator) => (
-            <ul className="border-lg rounded-lg mb-10 bg-black" key={creator.id}>
+          {support.map((supportImage) => (
+            <ul className="border-lg rounded-lg mb-10 bg-black" key={supportImage.id}>
               <Image
-                src={creator.image}
+                src={supportImage.image}
                 width={100}
                 height={50}
-                alt={creator.alt}
+                alt={supportImage.alt}
                 className="object-cover rounded-lg"
               />
             </ul>

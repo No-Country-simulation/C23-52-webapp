@@ -1,6 +1,4 @@
 import CustomButton from "@/components/CustomButton";
-import Link from "next/link";
-import React from "react";
 
 export const PublishSuccessful = () => {
   return (

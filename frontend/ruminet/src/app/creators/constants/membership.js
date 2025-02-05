@@ -1,5 +1,6 @@
 export const plans = [
   {
+    id: 1,
     title: "Basic",
     monthlyPrice: 5000,
     yearlyPrice: 50000,
@@ -15,6 +16,7 @@ export const plans = [
     label: "Comprar Ya",
   },
   {
+    id: 2,
     title: "Pro",
     monthlyPrice: 10000,
     yearlyPrice: 80000,
@@ -31,6 +33,7 @@ export const plans = [
     label: "Comprar Ya",
   },
   {
+    id: 3,
     title: "Premium",
     monthlyPrice: 15000,
     yearlyPrice: 100000,

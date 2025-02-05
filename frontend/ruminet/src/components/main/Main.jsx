@@ -7,10 +7,10 @@ import '@splidejs/splide/dist/css/splide.min.css';
 
 import '@splidejs/react-splide/css/sea-green';
 
-import { CardSections } from './components/CardSections';
-import { CardMemberships } from './components/CardMemberships';
+import MemberShipCardCreators from '@/app/creators/components/MembershipCardCreators';
 import { Apple, Play } from 'lucide-react';
 import { Button } from '../ui/button';
+import { CardSections } from './components/CardSections';
 
 const homeSections = [
   {
@@ -45,13 +45,7 @@ const homeSections = [
         estreno: 'Lun-Mie',
         image: '/images/comic.png',
       },
-      {
-        id: '5',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
+ 
     ],
   },
   {
@@ -86,13 +80,7 @@ const homeSections = [
         estreno: 'Lun-Mie',
         image: '/images/comic.png',
       },
-      {
-        id: '5',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
+
     ],
   },
   {
@@ -127,13 +115,7 @@ const homeSections = [
         estreno: 'Lun-Mie',
         image: '/images/comic.png',
       },
-      {
-        id: '5',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
+
     ],
   },
   {
@@ -167,14 +149,7 @@ const homeSections = [
         autor: 'Lucía Gutierrez',
         estreno: 'Lun-Mie',
         image: '/images/comic.png',
-      },
-      {
-        id: '5',
-        title: 'Espíritu de dragón',
-        autor: 'Lucía Gutierrez',
-        estreno: 'Lun-Mie',
-        image: '/images/comic.png',
-      },
+      }
     ],
   },
 ];
@@ -265,27 +240,13 @@ export const Main = () => {
           <Button variant='primary'>Creadores</Button>
         </div>
       </section>
-      <section className='flex flex-col gap-12 pt-16 px-4'>
-        <h2 className='font-bold mb-4 text-xl'>Membresías Mensuales</h2>
-        <div className='flex gap-2 justify-center flex-wrap'>
-          <CardMemberships
-            type={'Basic'}
-            benefits={'subir historietas'}
-            price={100}
-          />
-          <CardMemberships
-            type={'Standard'}
-            benefits={'subir historietas'}
-            price={500}
-          />
-          <CardMemberships
-            type={'Premium'}
-            benefits={'subir historietas'}
-            price={1000}
-          />
+      <section className='flex flex-col gap-5 pt-16 px-4'>
+        <h2 className='font-bold text-xl'>Membresías Mensuales</h2>
+        <div className='flex justify-center'>
+          <MemberShipCardCreators/>
         </div>
       </section>
-      <section className='flex flex-col justify-center items-center gap-6 my-16 lg:gap-12 lg:my-32 px-4'>
+      <section className='flex flex-col justify-center items-center gap-6 my-5 lg:gap-12 lg:my-10 px-4'>
         <h5 className='font-bold'>
           Donde los cómics nacen y las historias cobran vida Creadores y
           lectores, ¡Ruminet es su lugar!

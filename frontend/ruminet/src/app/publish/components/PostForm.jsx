@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -16,6 +16,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import ImagesDrop from "./ImagesDrop";
 import CommunityPolicy from "./CommunityPolicy";
+import { Loader2 } from "lucide-react";
 
 export const postFormSchema = z.object({
   title: z.string().min(1, "El titulo es obligatorio"),
@@ -24,6 +25,8 @@ export const postFormSchema = z.object({
 });
 
 export const PostForm = ({ setIsSuccessfully }) => {
+    const [isLoading, setIsLoading] = useState(false);
+  
   const form = useForm({
     resolver: zodResolver(postFormSchema),
     mode: "onBlur",
@@ -35,8 +38,10 @@ export const PostForm = ({ setIsSuccessfully }) => {
   });
 
   const onSubmit = form.handleSubmit((data) => {
-    console.log(data);
-    setIsSuccessfully(true);
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsSuccessfully(true);
+    }, 2000);
   });
   
   return (
@@ -94,8 +99,16 @@ export const PostForm = ({ setIsSuccessfully }) => {
             
             <CommunityPolicy/>
 
-            <Button type="submit">Submit</Button>
-          
+            {isLoading ? (
+            <Button disabled>
+              <Loader2 className="animate-spin" />
+              Please wait
+            </Button>
+          ) : (
+            <Button variant="outline" type="submit">
+              Submit
+            </Button>
+          )}
           </form>
         </Form>
       </div>

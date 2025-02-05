@@ -26,9 +26,9 @@ export default function SupportCreators() {
 
         <div className="flex flex-col gap-10 mb-5">
           <div className="flex mt-10 gap-5">
-            <CustomButton text={"$500"} />
-            <CustomButton text={"$1000"} />
-            <CustomButton text={"$5000"} />
+            <CustomButton href="/support" text={"$500"} />
+            <CustomButton href="/support" text={"$1000"} />
+            <CustomButton href="/support" text={"$5000"} />
           </div>
           <h3 className="text-center text-2xl font-semibold">Objetivo Mensual: $200</h3>
           <p className="text-center text-xl font-semibold">Dinero acumulado: $100</p>

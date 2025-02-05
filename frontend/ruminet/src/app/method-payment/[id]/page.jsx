@@ -9,7 +9,7 @@ export default function MethodPayment() {
   if (isSuccessfully) return <PaymentSuccesful />;
 
   return (
-    <div className="flex h-screen gap-20 justify-center px-52 items-center ">
+    <div className="flex h-screen gap-20 justify-center px-52 items-center">
       <PricingCard />
       <PaymentForm setIsSuccessfully={setIsSuccessfully}/>
     </div>

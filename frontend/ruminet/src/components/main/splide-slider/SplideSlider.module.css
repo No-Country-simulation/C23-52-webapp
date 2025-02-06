@@ -1,0 +1,11 @@
+.pagination__dots {
+  @apply -bottom-8 flex gap-2;
+}
+
+.pagination__dots svg {
+  @apply fill-white;
+}
+
+.dots {
+  @apply w-6 rounded bg-[#E10D0D];
+}

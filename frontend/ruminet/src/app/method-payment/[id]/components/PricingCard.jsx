@@ -1,37 +1,36 @@
 "use client";
-import BasicPricingCard from "@/components/pricing-card/monthly/BasicPricingCardMonthly";
-import PremiumPricingCard from "@/components/pricing-card/monthly/PremiumCardPricing";
-import ProPricingCard from "@/components/pricing-card/monthly/ProPricingCard";
-import BasicPricingYearly from "@/components/pricing-card/yearly/BasicPricingYearly";
+import BasicPricingYearly from "@/components/pricing-card/yearly/PricingCardYearly";
 import PremiumPricingYearly from "@/components/pricing-card/yearly/PremiumPricingYearly";
 import ProPricingYearly from "@/components/pricing-card/yearly/ProPricingYearly";
 import { useParams } from "next/navigation";
-import React from "react";
+import { basicPlan, premiumPlan, proPlan } from "../constants/methodPayments";
+import PricingCardMonthly from "@/components/pricing-card/monthly/PricingCardMonthly";
+import PricingCardYearly from "@/components/pricing-card/yearly/PricingCardYearly";
 
 export default function PricingCard() {
   const { id } = useParams();
 
   if (id === "basic-monthly") {
-    return <BasicPricingCard />;
+    return <PricingCardMonthly plan={basicPlan}/>;
   }
 
   if (id === "pro-monthly") {
-    return <ProPricingCard  />;
+    return <PricingCardMonthly plan={proPlan} />;
   }
 
   if (id === "premium-monthly") {
-    return <PremiumPricingCard />;
+    return <PricingCardMonthly plan={premiumPlan} />;
   }
 
   if (id === "basic-yearly") {
-    return <BasicPricingYearly isYearly={true} />;
+    return <BasicPricingYearly plan={basicPlan} isYearly={true} />;
   }
 
   if (id === "pro-yearly") {
-    return <ProPricingYearly isYearly={true} />;
+    return <PricingCardYearly  plan={proPlan} isYearly={true} />;
   }
 
   if (id === "premium-yearly") {
-    return <PremiumPricingYearly isYearly={true} />;
+    return <PricingCardYearly plan={premiumPlan} isYearly={true} />;
   }
 }

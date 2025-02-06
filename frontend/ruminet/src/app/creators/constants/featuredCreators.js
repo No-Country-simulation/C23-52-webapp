@@ -13,7 +13,13 @@ export const creators = [
     image: "/images/creators-images/women-writing.png",
     alt:"Card Featured Creators"
   },
-
+  {
+    id: 2,
+    name: "Gonzalo Example",
+    description: "Creadora y guionista de The Avengers",
+    image: "/images/creators-images/women-writing.png",
+    alt:"Card Featured Creators"
+  },
 ];
 
 

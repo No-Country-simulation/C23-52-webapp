@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const CategoryCardGridItems = ({ id, title, image, autor, estreno }) => {
   return (
-    <Link href={`/comics/${id}`}>
+    <Link href={`/comic/${id}`}>
       <div className='lg:h-[575px] 2xl:w-full md:h-[350px] h-96 border shadow-lg rounded-lg cursor-pointer'>
         <article className='lg:h-[427px] md:h-[250px] w-full h-64 rounded-t-lg overflow-hidden'>
           <Image

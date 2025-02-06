@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const CardSections = ({ title, image, autor, estreno }) => {
   return (
     <div className='p-4 border shadow-lg rounded-lg cursor-pointer'>
+      <Link href="/comic-review/1">
       <Image
         alt={title}
         src={image}
@@ -15,6 +17,7 @@ export const CardSections = ({ title, image, autor, estreno }) => {
       </span>
       <h4 className='text-sm lg:text-base'>{title}</h4>
       <span className='text-sm lg:text-base'>{autor}</span>
+      </Link>
     </div>
   );
 };

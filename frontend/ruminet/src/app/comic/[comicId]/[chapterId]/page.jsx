@@ -1,22 +1,22 @@
 'use client';
 
 import { Chapter } from '@/components/comic/chapter/Chapter';
-import { chapters } from '@/components/comic/data/chapter';
+import { comics } from '@/components/comic/mocks/comics';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { FaArrowLeftLong } from 'react-icons/fa6';
 
-const chapter = chapters[1];
-
 export default function ChaptersPage() {
-  const { comicId } = useParams();
+  const { comicId, chapterId } = useParams();
+
+  const comic = comics.find((comic) => comic.name === comicId);
 
   return (
     <section className='w-full flex flex-col justify-center items-center my-20'>
       <div className='flex flex-col items-center gap-80 p-4'>
-        <Button asChild variant='primary'>
+        <Button asChild variant='primary' className='px-16 py-6'>
           <Link href={`/comic/${comicId}`}>
             <FaArrowLeftLong />
             Regresar
@@ -36,7 +36,7 @@ export default function ChaptersPage() {
       </div>
 
       {/* Chapters */}
-      <Chapter comicId={comicId} chapter={chapter} />
+      <Chapter comicId={comicId} comic={comic} chapterId={chapterId} />
 
       <div className='bg-black w-full flex flex-col justify-center items-center gap-2 lg:gap-9 pb-12 my-12'>
         <h5 className='lg:text-2xl text-white p-12'>

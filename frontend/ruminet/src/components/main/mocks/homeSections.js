@@ -4,14 +4,14 @@ export const homeSections = [
     categoryTitle: 'Más populares',
     items: [
       {
-        id: '1',
+        id: 'luminia',
         title: 'Espíritu de dragón',
         autor: 'Lucía Gutierrez',
         estreno: 'Lun-Mie',
         image: '/images/sections/popular/comic-1.jpg',
       },
       {
-        id: '2',
+        id: 'petalos-de-afecto',
         title: 'Pétalos de afecto',
         autor: 'Lucía Gutierrez',
         estreno: 'Lun-Mie',
